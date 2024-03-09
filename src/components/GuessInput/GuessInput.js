@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Form({ handleSubmitGuess }) {
+function GuessInput({ handleSubmitGuess, gameOver }) {
   const [tentativeGuess, setTentativeGuess] = React.useState('')
 
   return (
@@ -21,6 +21,7 @@ function Form({ handleSubmitGuess }) {
         maxLength={5}
         pattern='[a-zA-Z]{5}'
         title='5 letter word'
+        disabled={gameOver}
         onChange={(e) => {
           setTentativeGuess(e.target.value.toUpperCase())
         }}
@@ -29,4 +30,4 @@ function Form({ handleSubmitGuess }) {
   )
 }
 
-export default Form
+export default GuessInput
